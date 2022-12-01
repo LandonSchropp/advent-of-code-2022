@@ -4,5 +4,11 @@
   "repository": "https://github.com/LandonSchropp/advent-of-code-2022",
   "author": "Landon Schropp <schroppl@gmail.com>",
   "license": "UNLICENSED",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "typescript": "4.9.3"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.10"
+  }
 }
