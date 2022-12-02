@@ -26,6 +26,6 @@
   "scripts": {
     "answer": "ts-node-esm index.ts",
     "lint": "eslint --max-warnings=0 .",
-    "test": "jest",
+    "test": "jest"
   }
 }

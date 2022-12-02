@@ -1,10 +1,4 @@
-function add(first: number, second: number) {
-  return first + second;
-}
-
-function sum(numbers: number[]) {
-  return numbers.reduce(add);
-}
+import { add, sum } from "../lib/math";
 
 function parse(input: string): number[][] {
   return input
