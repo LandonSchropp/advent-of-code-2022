@@ -1,16 +1,33 @@
 import { sum } from "../lib/math";
 
-const MOVES = [ "B", "C", "A", "X", "Y", "Z" ] as const;
-type Move = typeof MOVES[number]
+const MOVES = [ "A", "B", "C" ];
+const OUTCOMES = [ "X", "Y", "Z" ];
 
-function parse(input: string) {
-  return input.split("\n").map(line => line.split(" ") as [Move, Move]);
+function parse(input: string): [number, number][] {
+  return input
+    .split("\n")
+    .map(line => {
+      const [ move, outcome ] = line.split(" ");
+      return [ MOVES.indexOf(move!), OUTCOMES.indexOf(outcome!) ];
+    });
 }
 
-function score([ opponent, player ]: [Move, Move]) {
-  return (MOVES.indexOf(player) - MOVES.indexOf(opponent)) % 3 * 3 + MOVES.indexOf(player) - 2;
+function score(move: number, outcome: number) {
+  return outcome * 3 + move + 1;
+}
+
+function part1Score([ opponent, player ]: [number, number]) {
+  return score(player, (player - opponent + 4) % 3);
+}
+
+function part2Score([ opponent, outcome ]: [number, number]) {
+  return score((opponent + outcome + 2) % 3, outcome);
 }
 
 export function part1(input: string) {
-  return sum(parse(input).map(score));
+  return sum(parse(input).map(part1Score));
+}
+
+export function part2(input: string) {
+  return sum(parse(input).map(part2Score));
 }
