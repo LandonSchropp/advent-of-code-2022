@@ -24,7 +24,8 @@
     "ts-node": "^10.9.1"
   },
   "scripts": {
+    "answer": "ts-node-esm index.ts",
     "lint": "eslint --max-warnings=0 .",
-    "answer": "ts-node-esm index.ts"
+    "test": "jest",
   }
 }
