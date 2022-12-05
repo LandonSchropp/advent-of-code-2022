@@ -8,6 +8,8 @@ module.exports = {
     jest: true
   },
   rules: {
-    "@typescript-eslint/no-non-null-assertion": "off"
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "no-extra-parens": "off",
+    "@typescript-eslint/no-extra-parens": "warn"
   }
 };
