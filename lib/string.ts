@@ -1,16 +1,11 @@
-import { negate, zip } from "lodash-es";
+import { zip } from "lodash-es";
 
 /**
  * Returns true if the string is blank.
  */
-export function isBlank(input: string): boolean {
-  return /^\s*$/.test(input);
+export function isBlank(input: undefined | null | string): boolean {
+  return !input || /^\s*$/.test(input);
 }
-
-/**
- * Returns true if the string is not blank.
- */
-export const isPresent = negate(isBlank);
 
 /**
  * Transposes a string.
