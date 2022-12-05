@@ -1,4 +1,4 @@
-import { part1 } from "../source/day4";
+import { part1, part2 } from "../source/day4";
 import { formatInput } from "./helpers";
 
 const EXAMPLE_INPUT = formatInput(`
@@ -10,12 +10,22 @@ const EXAMPLE_INPUT = formatInput(`
   2-6,4-8
 `);
 
-describe("part2", () => {
+describe("part1", () => {
 
   describe("when the input is the example provided in the problem", () => {
 
     it("produces the expected example solution", () => {
       expect(part1(EXAMPLE_INPUT)).toEqual(2);
+    });
+  });
+});
+
+describe("part2", () => {
+
+  describe("when the input is the example provided in the problem", () => {
+
+    it("produces the expected example solution", () => {
+      expect(part2(EXAMPLE_INPUT)).toEqual(4);
     });
   });
 });
