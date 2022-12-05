@@ -1,11 +1,6 @@
 import { dropRightWhile, dropWhile, min, negate } from "lodash-es";
 
-/**
- * Returns true if the string is blank.
- */
-function isBlank(input: string): boolean {
-  return /^\s*$/.test(input);
-}
+import { isBlank } from "../lib/string";
 
 /**
  * Removes empty lines from the beginning and end of a string without affecting other lines or their
