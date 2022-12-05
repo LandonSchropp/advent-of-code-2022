@@ -26,8 +26,10 @@
     "ts-node": "^10.9.1"
   },
   "scripts": {
-    "answer": "ts-node-esm --experimental-specifier-resolution=node index.ts",
+    "answer": "yarn solution",
     "lint": "eslint --max-warnings=0 .",
+    "solution": "ts-node-esm --experimental-specifier-resolution=node index.ts",
+    "solve": "yarn solution",
     "test": "jest"
   }
 }
