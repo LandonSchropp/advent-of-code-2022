@@ -26,18 +26,27 @@ function parse(input: string): [Stack[], Move[]] {
   return [ parseStacks(stackInput!), parseMoves(moveInput!) ];
 }
 
-function moveItem(stacks: Stack[], from: number, to: number): Stack[] {
+function moveItems(stacks: Stack[], quantity: number, from: number, to: number): Stack[] {
   stacks = cloneDeep(stacks);
-  stacks[to - 1]!.push(stacks[from - 1]!.pop()!);
+  times(quantity, () => stacks[to - 1]!.push(stacks[from - 1]!.pop()!));
   return stacks;
 }
 
-function moveItems(stacks: Stack[], quantity: number, from: number, to: number): Stack[] {
-  return times(quantity).reduce((accumulator) => moveItem(accumulator, from, to), stacks);
+function moveItemsReversed(stacks: Stack[], quantity: number, from: number, to: number): Stack[] {
+  stacks = cloneDeep(stacks);
+  const temporaryStack: Stack = [];
+
+  times(quantity, () => temporaryStack.push(stacks[from - 1]!.pop()!));
+  times(quantity, () => stacks[to - 1]!.push(temporaryStack.pop()!));
+  return stacks;
 }
 
 function applyMoves(stacks: Stack[], moves: Move[]) {
   return moves.reduce((accumulator, move) => moveItems(accumulator, ...move), stacks);
+}
+
+function applyMovesReversed(stacks: Stack[], moves: Move[]) {
+  return moves.reduce((accumulator, move) => moveItemsReversed(accumulator, ...move), stacks);
 }
 
 export function part1(input: string) {
@@ -46,5 +55,6 @@ export function part1(input: string) {
 }
 
 export function part2(input: string) {
-  return null;
+  const [ stacks, moves ] = parse(input);
+  return applyMovesReversed(stacks, moves).map(last).join("");
 }

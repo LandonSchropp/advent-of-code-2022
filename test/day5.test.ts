@@ -40,7 +40,7 @@ describe("part2", () => {
   describe("when the input is the example provided in the problem", () => {
 
     it("produces the expected example solution", () => {
-      expect(part2(EXAMPLE_INPUT)).toEqual(null);
+      expect(part2(EXAMPLE_INPUT)).toEqual("MCD");
     });
   });
 });
