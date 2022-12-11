@@ -42,7 +42,7 @@ if (typeof solution !== "function") {
 }
 
 // Run the solution and output the result.
-process.stdout.write(solution(input.trim()).toString());
+process.stdout.write(solution(input).toString());
 
 // HACK: Top-level await calls are only allowed in modules. In order to make this file a module, we
 // have to export something.
